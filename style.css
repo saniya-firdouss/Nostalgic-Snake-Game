@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.body{
+    background: url("img/bg.jpg"); 
+    min-height: 100vh;
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#scoreBox{
+    position: absolute;
+    top: 9px;
+    right: 200px;
+    font-size: 39px;
+    font-weight: bold;
+    color: #f1ff33;
+    font-family: 'New Tegomin', serif;
+}
+
+#hiscoreBox{
+    position: absolute;
+    top: 59px;
+    right: 164px;
+    font-size: 39px;
+    font-weight: bold;
+    color: #f1ff33;
+    font-family: 'New Tegomin', serif;
+}
+
+#board{
+    width: 90vmin;
+    height: 92vmin;
+    border: 10px solid #f1ff33;
+    box-shadow: inset 0 0 15px #3D5300, inset 0 0 30px #3D5300;
+    background: url("img/1.png");
+    display: grid;
+    border-radius: 5%;
+    grid-template-rows: repeat(18, 1fr);
+    grid-template-columns: repeat(18, 1fr);
+}
+
+.head{
+    background: linear-gradient(rgb(240, 124, 124), rgb(228, 228, 129));
+    border: 2px solid rgb(34, 4, 34); 
+    transform: scale(1.02);
+    border-radius: 9px;
+}
+
+.snake{
+    background-color: #a855f7;
+    border: .25vmin solid white;
+    border-radius: 12px;
+}
+
+.food{
+    background: linear-gradient(red, purple);
+    border: .25vmin solid black;
+    border-radius: 8px;
+}
+
+/* POP-UP1 HERE*/
+
+.popup1 {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background:rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1000;
+    animation: fadeIn 1s ease-out forwards;
+  }
+.popup-content{
+    background: #1e2a12;
+    border:10px solid #FFE31A;
+    padding: 5rem;
+    border-radius: 20px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,3);
+    animation: fadeIn 1s ease-out forwards;
+
+}
+.popup-content h2 {
+    font-size: 35px;
+    font-family:'New Tegomin', serif ;
+    font-weight: 600;
+    color: #F09319;
+}
+.popup-content p {
+    font-size: 20px;
+    font-family:'New Tegomin', serif ;
+    font-weight: 500;
+    color: #FFA94D;
+}
+
+#difficulty {
+   display: flex;
+   justify-content:space-evenly;
+   align-items: center;
+   padding: 20px;
+   font-size: 20px;
+   gap: 10px;
+    font-family:'New Tegomin', serif ;
+    font-weight: 500;
+    color: #FFE31A;
+}
+#difficulty button {
+    padding: .5rem .75rem;
+    width: 82px;
+    height:  74px;
+    color: #3D5300;
+    background-color: #F09319;
+    border-radius: 50%;
+    box-shadow: inset 0 0 20px #844e08 ;
+    border: 5px solid #FFE31A;
+    font-size: 15px;
+    font-family: 'New Tegomin', sans-serif;
+    font-weight: 800;
+    cursor: pointer;
+    
+}
+#difficulty button:hover {
+    transform: scale(1.1);
+    background-color: #3D5300;
+    color: #FFE31A;
+    box-shadow:  0 0 20px #f1ff33 ;
+
+}
+/* GAME START TEXT HERE*/
+#StartText {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    font-size: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    color: #FFE31A;
+    font-family: 'New Tegomin', sans-serif ;
+    font-weight: 800;
+    animation: startText 1s ease-out forwards;
+}
+@keyframes startText {
+ 0% {
+    opacity: 0;
+    transform: scale(0.5);
+ }
+ 50% {
+    opacity: 1;
+    transform: scale(1);
+ }
+ 100% {
+    opacity: 0;
+ }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/* TRY AGAIN BUTTON */
+
+#lastbtn {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background:rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 1s ease-out forwards;
+}
+#tryBtn {
+    width: 166px;
+    height: 45px;
+    background: #3D5300 ;
+    border: 5px #FFE31A solid;
+    box-shadow:  0 0 20px #f1ff33 ;
+    border-radius: 20px;
+    color:#FFE31A;
+    font-family:  'New Tegomin', sans-serif ;
+    font-size: 20px;
+    font-weight: 800;
+    animation: btnPop 1s ease-out forwards;
+
+}
+#tryBtn:hover {
+    transform: scale(1.1);
+    background: #FFE31A;
+    color: #1e2a12;
+    box-shadow: inset 0 0 20px #844e08 ;
+
+}
+
+
+@keyframes btnPop {
+    0%{
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+/*RESPONSIVE MEDIA QUERIES STARTS HERE*/
+/* styles for tablets */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    #scoreBox {
+        right: 116px;
+        font-size: 25px;
+    }
+    #hiscoreBox {
+        right: 86px;
+        font-size: 25px;
+
+    }
+  }
+
+        /* styles for mobile */
+
+  @media screen and (max-width: 600px) {
+    #scoreBox {
+        right: 211px;
+        font-size: 20px;
+        top: 45px;
+    }
+    #hiscoreBox {
+        right: 186px;
+        font-size: 20px;
+        top: 78px;
+    }
+    .popup-content {
+        padding: 1.5rem;
+    }
+    .popup-content h2 {
+        font-size: 20px;
+    }
+    .popup-content p {
+        font-size: 12px;
+    }
+    #difficulty {
+        padding: 10px;
+        flex-wrap: wrap;
+    }
+    #difficulty h3 {
+        font-size: 1rem;
+    }
+    #difficulty button {
+        font-size: 0.8rem;
+        width: 72px;
+        height: 65px;
+    }
+    #StartText {
+        font-size: 40px;
+    }
+  }
+
+
+
+
+
+
+
+
